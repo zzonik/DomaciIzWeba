@@ -15,7 +15,16 @@ public class Company implements Serializable {
     @Column
     private String name;
 
+    @OneToMany(mappedBy = "company", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<Contact> contacts = new HashSet<>();
 
+    public Set<Contact> getContacts() {
+        return contacts;
+    }
+
+    public void setContacts(Set<Contact> contacts) {
+        this.contacts = contacts;
+    }
 
     @Column
     private String address;

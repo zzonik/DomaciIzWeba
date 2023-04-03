@@ -10,6 +10,9 @@ INSERT INTO EMPLOYEE (first_name, last_name, position, department_id) VALUES ('S
 INSERT INTO PROJECT (name, deadline) VALUES ('Biću student FTN', '2019-02-10');
 INSERT INTO PROJECT (name, deadline) VALUES ('Podizanje sistema', '2019-05-1');
 
+INSERT INTO CONTACT (number, email, company_id) VALUES ('+111 111 111', 'ftn@uns.ac.rs', '1');
+INSERT INTO CONTACT (number, email, company_id, employee_id) VALUES ('+222 222 222', 'aleksandar.aleksic@uns.ac.rs', '1', '1');
+
 INSERT INTO WORKING (project_id, employee_id) VALUES (1, 1);
 INSERT INTO WORKING (project_id, employee_id) VALUES (1, 2);
 INSERT INTO WORKING (project_id, employee_id) VALUES (2, 3);

@@ -21,6 +21,8 @@ public class Employee implements Serializable {
     @Column
     private String position;
 
+    @OneToMany(mappedBy = "employee", fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<Contact> contacts = new HashSet<>();
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Department department;
@@ -41,6 +43,14 @@ public class Employee implements Serializable {
 
     public String getFirstName() {
         return firstName;
+    }
+
+    public Set<Contact> getContacts() {
+        return contacts;
+    }
+
+    public void setContacts(Set<Contact> contacts) {
+        this.contacts = contacts;
     }
 
     public void setFirstName(String firstName) {
@@ -80,6 +90,7 @@ public class Employee implements Serializable {
                 ", lastName='" + lastName + '\'' +
                 ", position='" + position + '\'' +
                 ", department=" + department +
+                ", contact= " + this.contacts +
                 '}';
     }
 }
